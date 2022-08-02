@@ -32,9 +32,11 @@ async def roll(ctx,max=100):
         return
 
     if rolled == 1:
-        await ctx.send(f'To twój koniec, *{ctx.author.name}*. Przegranko.')
+        await ctx.send(f'<:gogogo:1004137356422557776> To twój koniec, *{ctx.author.name}*. Przegranko. <:gogogo:1004137356422557776>')
     else:
         await ctx.send(f'Użytkownik *{ctx.author.name}* wyrollował {rolled}!')
 
-config = load_config()
-bot.run(config['token'])
+
+if __name__ == "__main__":
+    config = load_config()
+    bot.run(config['token'])
