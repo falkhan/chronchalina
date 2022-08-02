@@ -1,21 +1,14 @@
-# This example requires the 'message_content' intent.
-
 import discord
 import yaml
 import random
 from discord.ext import commands
-
+import os
 intents = discord.Intents.default()
 intents.messages = True
 
 
 #client = discord.Client(intents=intents)
 bot = commands.Bot(command_prefix='/')
-
-def load_config():
-    with open('config.yml','r') as stream:
-        config = yaml.safe_load(stream)
-    return config
 
 @bot.event
 async def on_ready():
@@ -38,5 +31,5 @@ async def roll(ctx,max=100):
 
 
 if __name__ == "__main__":
-    config = load_config()
-    bot.run(config['token'])
+    TOKEN = os.getenv("DISCORD_TOKEN")
+    bot.run(TOKEN)
